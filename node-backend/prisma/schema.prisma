@@ -1,0 +1,24 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Game {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  team_1 Int @db.SmallInt
+  team_2 Int @db.SmallInt
+  score  Json
+  
+}
+
+model Team {
+  id Int @id @default(autoincrement()) @db.SmallInt
+  team_name String @db.VarChar(100)
+}
+
+
+
